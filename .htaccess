@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Redirect specific profile route to views/profile/index.html
+RewriteRule ^intern-work/profile$ views/profile/index.html [L]
+
+# Fallback for all other routes to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

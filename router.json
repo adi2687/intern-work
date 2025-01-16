@@ -1,0 +1,17 @@
+{
+    "intern-work": {
+        "path": "views/index.php"
+    },
+    "intern-work/about": {
+        "path": "views/about.php"
+    },
+    "intern-work/profile": {
+        "path": "views/profile/index.php"
+    },
+    "intern-work/transactions.php": {
+        "path": "transactions.php"
+    },
+    "intern-work/edit": {
+        "path": "edit.php"
+    }
+}
