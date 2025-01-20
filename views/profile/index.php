@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,12 +83,32 @@
         button:hover {
             background-color: #218838;
         }
-        img{
-            width:50%;
-            height:60%
+
+        img {
+            width: 50%;
+            height: 60%
         }
-        a{
-            text-decoration:none
+
+        a {
+            text-decoration: none
+        }
+
+        .logout {
+            background-color: red;
+            position: absolute;
+            width: 90px;
+            top: 3%;
+            left: 90%;
+            color: white
+        }
+
+        .logout:hover {
+            background-color: darkred;
+        }
+
+        a {
+            text-decoration: none;
+            color: BLACK
         }
     </style>
 </head>
@@ -98,6 +116,9 @@
 <body>
     <div class="profile-container">
         <h1>User Profile</h1>
+        <button class="logout">
+            <a href="logout.php">Logout</a>
+        </button>
 
         <!-- Car Listings Section -->
         <section>
@@ -113,6 +134,9 @@
                     <input type="file" name="carimage" accept="image/*"><br>
                     <button type="submit">Add Listing</button>
                 </form>
+                <a href="viewbooking">View Booked cars</a>
+                <br>
+                <a href="bookcar">Book cars</a>
             </div>
         </section>
 
@@ -125,9 +149,6 @@
         </section>
 
         <!-- Update Profile Button -->
-        <button type="button" onclick="alert('Redirect to update profile functionality');">
-            Update Profile
-        </button>
     </div>
     <script>
         let chr = new XMLHttpRequest();

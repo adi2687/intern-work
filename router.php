@@ -20,7 +20,7 @@ class Router
             $this->queries = [];
         }
     
-        // Load and validate routes.json
+        // Load and validate routes.json    
         $this->routes = [];
         $jsonPath = __DIR__ . '/router.json';
     
@@ -39,36 +39,33 @@ class Router
         }
     }
     
+public function run()
+{
+    require_once('config.php');
 
-    public function run()
-    {
-        require_once('config.php');
+    // If the request is empty, serve the home page
+    if (empty($this->request)) {
+        include($this->routes['intern-work']['path']);
+        return;
+    }
 
-        // If the request is empty, serve the home page
-        if (empty($this->request)) {
-            include('views/index.php');
-            return;
-        }
-
-        // Debugging: Check the processed request
-
-        // Route matching
-        $routeFound = false;
-        foreach ($this->routes as $route => $data) {
-            // Ensure the route is matched correctly
-            if (preg_match($this->getPattern($route), $this->request, $matches)) {
-                $this->setRouteVariables($data, $matches);
-                include($data['path']);
-                $routeFound = true;
-                break;
-            }
-        }
-
-        if (!$routeFound) {
-            $this->pageNotFound(); // 404 if route not found
+    // Route matching from JSON configuration
+    $routeFound = false;
+    foreach ($this->routes as $route => $data) {
+        if ($route === $this->request) {
+            include($data['path']);
+            $routeFound = true;
+            break;
         }
     }
 
+    // Handle 404 if no route is found
+    if (!$routeFound) {
+        $this->pageNotFound();
+    }
+}
+
+    
     // Create a regular expression pattern for the route
     private function getPattern($route)
     {

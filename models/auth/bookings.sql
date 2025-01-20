@@ -1,0 +1,2 @@
+CREATE TABLE `intern-work`.`bookings` (`id` INT(11) NOT NULL AUTO_INCREMENT , `car_id` INT(50) NULL DEFAULT NULL , `timeofbooking` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) , `duration` INT(2) NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+ALTER TABLE `bookings` ADD `booker_id` VARCHAR(60) NULL DEFAULT NULL AFTER `duration`;

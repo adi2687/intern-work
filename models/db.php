@@ -173,6 +173,11 @@ class DB
     public static function select($table, $columns = "*", $where = "", $orderBy = "", $limit = "", $bindings = [])
     {
         try {
+            // Ensure the database connection is available
+            if (self::$connection === null) {
+                self::connect();
+            }
+
             // Build the base query
             $query = "SELECT $columns FROM $table";
 
@@ -209,6 +214,7 @@ class DB
             throw new Exception("Database query error: " . $e->getMessage());
         }
     }
+
 
     /**
      * Executes a custom query with optional parameter bindings.

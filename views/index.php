@@ -261,8 +261,9 @@ nav ul li a {
         </ul>
     </nav>
     <div class="container">
-        <h2>Sign Up</h2>
         <form method="POST" action="" class="signupform">
+        <h2>Sign Up</h2>
+
             <label for="username">Username</label>
             <input type="text" id="username" name="name" required>
 

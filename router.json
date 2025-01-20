@@ -13,5 +13,11 @@
     },
     "intern-work/edit": {
         "path": "edit.php"
+    },
+    "intern-work/viewbooking":{
+        "path": "viewbooking.php"
+    },
+    "intern-work/bookcar":{
+        "path": "BookCar/index.php"
     }
 }
